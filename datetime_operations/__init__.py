@@ -1,1 +1,1 @@
-from .natural_date import naturalDatetime
+from .natural_date import naturalDatetime, isCurrentWeek
