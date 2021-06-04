@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='python_tools',
-    version='1.0.0',
+    version='1.0.1',
     packages=['data_structures', 'datetime_operations'],
     url='https://github.com/noorzeea/python_tools',
     license='',

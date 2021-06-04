@@ -27,7 +27,6 @@ def naturalDatetime(input_datetime):
         return 'Today' + ' @' + time
     elif natural_datetime == today + timedelta(days=1):
         return 'Tomorrow' + ' @' + time
-    elif isCurrentWeek(natural_datetime):
+    else:
         return 'In' + deltaDays(natural_datetime) + ' days'
 
-    return input_datetime.strftime('%d/%m/%Y') + " @" + input_datetime.strftime('%H:%M')
