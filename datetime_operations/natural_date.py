@@ -1,14 +1,19 @@
 from datetime import date, time, timedelta
 
-def isCurrentWeek(day):
+def deltaDays(day):
     """
     Checks if input day is in 7 days
     """
     today = date.today()
     delta = day - today
 
-    return delta.days <= 7
+    return delta.days
 
+def isCurrentWeek(day):
+    """
+    Checks if input day is in 7 days
+    """
+    return deltaDays(day) <= 7
 
 def naturalDatetime(input_datetime):
     """
@@ -23,6 +28,6 @@ def naturalDatetime(input_datetime):
     elif natural_datetime == today + timedelta(days=1):
         return 'Tomorrow' + ' @' + time
     elif isCurrentWeek(natural_datetime):
-        return natural_datetime.strftime('%A') + ' @' + time
+        return 'In' + deltaDays(natural_datetime) + ' days'
 
     return input_datetime.strftime('%d/%m/%Y') + " @" + input_datetime.strftime('%H:%M')
