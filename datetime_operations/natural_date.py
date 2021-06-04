@@ -28,5 +28,5 @@ def naturalDatetime(input_datetime):
     elif natural_datetime == today + timedelta(days=1):
         return 'Tomorrow' + ' @' + time
     else:
-        return 'In' + deltaDays(natural_datetime) + ' days'
+        return 'In' + str(deltaDays(natural_datetime)) + ' days'
 
