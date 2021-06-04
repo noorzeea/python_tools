@@ -20,13 +20,18 @@ def naturalDatetime(input_datetime):
     Translate system's datetime format into a human readable one
     """
     today = date.today()
+    yesterday = date.today() - timedelta(days=1)
     time = input_datetime.strftime('%H:%M')
     natural_datetime = date(input_datetime.year, input_datetime.month, input_datetime.day)
 
-    if natural_datetime == today:
+    if natural_datetime == yesterday:
+        return 'Yesterday' + ' @' + time
+    elif natural_datetime < yesterday:
+        return str(deltaDays(natural_datetime)).replace("-", "") + " days ago"
+    elif natural_datetime == today:
         return 'Today' + ' @' + time
     elif natural_datetime == today + timedelta(days=1):
         return 'Tomorrow' + ' @' + time
     else:
-        return 'In' + str(deltaDays(natural_datetime)) + ' days'
+        return 'In ' + str(deltaDays(natural_datetime)) + ' days'
 
